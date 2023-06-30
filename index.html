@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dark in Depth</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-        }
-        #header, #footer {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-        }
-        #content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-    </style>
+  <title>Amazing Stereogram</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    #stereogram {
+      margin: 50px 0;
+    }
+
+    header, footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    header h1, footer p {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Dark in Depth</h1>
-    </div>
-    <div id="content">
-        <img id="stereogram" width="500" height="400" src />
-    </div>
-    <div id="footer">
-        <p>Created with Stereogram.js</p>
-    </div>
+  <header>
+    <h1>Amazing Stereogram</h1>
+  </header>
 
-    <script src="stereogram.js" type="text/javascript"></script>
-    <script src="TextDepthMapper.js" type="text/javascript"></script>
-    <script>
+  <img id="stereogram" width="500" height="400" src />
+
+  <input id="text-input" type="text" value="Dark">
+  <button id="update-button">Update Text</button>
+
+  <footer>
+    <p>Created with Stereogram.js</p>
+  </footer>
+
+  <script src="stereogram.js" type="text/javascript"></script>
+  <script src="TextDepthMapper.js" type="text/javascript"></script>
+  <script>
+    const stereogramEl = document.getElementById('stereogram');
+    const inputEl = document.getElementById('text-input');
+    const buttonEl = document.getElementById('update-button');
+
+    function renderStereogram(text) {
+      try {
         Stereogram.render({
-            el: 'stereogram',
-            depthMapper: new Stereogram.TextDepthMapper("Dark")
+          el: 'stereogram',
+          depthMapper: new Stereogram.TextDepthMapper(text)
         });
-    </script>
+      } catch (error) {
+        console.error('An error occurred while rendering the stereogram:', error);
+      }
+    }
+
+    // 初期表示
+    renderStereogram(inputEl.value);
+
+    // ボタンをクリックしたときのイベント
+    buttonEl.addEventListener('click', () => {
+      renderStereogram(inputEl.value);
+    });
+  </script>
 </body>
 </html>
-
