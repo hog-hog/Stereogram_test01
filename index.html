@@ -1,48 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Stereogram Viewer</title>
+    <title>Amazing Stereogram</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-        header, footer {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            width: 100%;
             text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
+
+        h1, h2 {
+            color: #333;
+        }
+
         #stereogram {
-            margin: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #888;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Red Stereogram Viewer</h1>
+        <h1>Welcome to Amazing Stereogram!</h1>
     </header>
+
     <img id="stereogram" width="500" height="400" src />
+
     <footer>
-        <p>&copy; 2023 Red Stereogram Viewer</p>
+        <h2>Thanks for visiting!</h2>
     </footer>
 
     <script src="stereogram.js" type="text/javascript"></script>
     <script src="TextDepthMapper.js" type="text/javascript"></script>
     <script>
-    Stereogram.render({
-        el: 'stereogram',
-        depthMapper: new Stereogram.TextDepthMapper("Red")
-    });
+        Stereogram.render({
+            el: 'stereogram',
+            depthMapper: new Stereogram.TextDepthMapper("Red")
+        });
     </script>
 </body>
 </html>
