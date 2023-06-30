@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dark Stereogram</title>
+    <title>Dark Depths</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
             height: 100vh;
-            margin: 0;
-            background: #fafafa;
-            font-family: Arial, sans-serif;
         }
-        #header, #footer {
-            width: 100%;
-            background: #333;
+        header, footer {
+            background-color: #333;
             color: #fff;
-            padding: 20px 0;
+            padding: 20px;
+            width: 100%;
             text-align: center;
         }
-        #stereogram {
-            margin: 20px 0;
+        img {
+            margin-top: 50px;
         }
     </style>
+    <script src="stereogram.js" type="text/javascript"></script>
+    <script src="TextDepthMapper.js" type="text/javascript"></script>
 </head>
 <body>
-    <div id="header">
-        <h1>Dark Stereogram</h1>
-    </div>
+    <header>
+        <h1>Dark Depths</h1>
+    </header>
 
     <img id="stereogram" width="500" height="400" src />
 
-    <div id="footer">
+    <footer>
         <p>Created with Stereogram.js</p>
-    </div>
+    </footer>
 
-    <script src="stereogram.js" type="text/javascript"></script>
-    <script src="TextDepthMapper.js" type="text/javascript"></script>
     <script>
     Stereogram.render({
-      el: 'stereogram',
-      depthMapper: new Stereogram.TextDepthMapper("Dark")
+        el: 'stereogram',
+        depthMapper: new Stereogram.TextDepthMapper("Dark")
     });
     </script>
 </body>
