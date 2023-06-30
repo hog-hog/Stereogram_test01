@@ -7,34 +7,13 @@
 <body>
   <h1>Stereogram.js Sample</h1>
   <p>このページでは、Stereogram.jsを使って、ステレオグラムに表示するテキストが「Dark」の画像を表示しています。</p>
-  <canvas id="canvas" width="800" height="600"></canvas>
+  <canvas id="stereogram" width="800" height="600"></canvas>
   <script>
-    // Stereogram.jsのインスタンスを作成する
-    var stereogram = new Stereogram();
-
-    // ステレオグラムに表示するテキストを設定する
-    var text = "Dark";
-
-    // テキストから深度マップを生成する
-    var depthMap = stereogram.createDepthMapFromText(text, {
-      font: "bold 200px Arial",
-      width: 800,
-      height: 600,
-      invert: true
+    // Stereogram.renderという関数を呼び出す
+    Stereogram.render({
+      el: 'stereogram',
+      depthMapper: new Stereogram.TextDepthMapper("Dark")
     });
-
-    // 深度マップからステレオグラムを生成する
-    var image = stereogram.createImageFromDepthMap(depthMap, {
-      pattern: "random",
-      colors: ["#000000", "#ffffff"],
-      repeat: true,
-      smooth: true
-    });
-
-    // ステレオグラムをCanvasに描画する
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext("2d");
-    context.drawImage(image, 0, 0);
   </script>
 </body>
 </html>
