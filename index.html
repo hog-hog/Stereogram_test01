@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Red Stereogram Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Stereogram Viewer</title>
     <style>
         body {
             display: flex;
@@ -10,42 +12,37 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f3f3f3;
+            background: #f4f4f4;
             font-family: Arial, sans-serif;
         }
-
-        h1, h2 {
-            color: #333;
-        }
-
-        #stereogram {
-            margin: 20px;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
+        header, footer {
+            background: #333;
             color: #fff;
+            padding: 20px;
+            width: 100%;
             text-align: center;
+        }
+        #stereogram {
+            margin: 50px;
         }
     </style>
 </head>
 <body>
-    <h1>Red Stereogram Generator</h1>
+    <header>
+        <h1>Red Stereogram Viewer</h1>
+    </header>
     <img id="stereogram" width="500" height="400" src />
-
-    <footer>© 2023 OpenAI</footer>
+    <footer>
+        <p>&copy; 2023 Red Stereogram Viewer</p>
+    </footer>
 
     <script src="stereogram.js" type="text/javascript"></script>
     <script src="TextDepthMapper.js" type="text/javascript"></script>
     <script>
-        Stereogram.render({
-            el: 'stereogram',
-            depthMapper: new Stereogram.TextDepthMapper("Red")
-        });
+    Stereogram.render({
+        el: 'stereogram',
+        depthMapper: new Stereogram.TextDepthMapper("Red")
+    });
     </script>
 </body>
 </html>
