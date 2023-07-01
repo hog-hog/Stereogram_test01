@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Stereogram Page</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
+    img {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Stereogram Page</h1>
+  </header>
+
+  <div>
+    <input type="text" id="inputText" placeholder="Enter text here..." value="Dark">
+    <button id="changeButton">Change</button>
+    <img id="stereogram" width="500" height="400" src />
+  </div>
+
+  <footer>
+    <p>Created with Stereogram.js</p>
+  </footer>
+
+  <script src="stereogram.js" type="text/javascript"></script>
+  <script src="TextDepthMapper.js" type="text/javascript"></script>
+
+  <script>
+    const inputText = document.getElementById('inputText');
+    const changeButton = document.getElementById('changeButton');
+
+    function generateStereogram(text) {
+      try {
+        Stereogram.render({
+          el: 'stereogram',
+          depthMapper: new Stereogram.TextDepthMapper(text)
+        });
+      } catch (error) {
+        console.error("Error while generating stereogram: ", error);
+        alert("Error while generating stereogram. Please check the console for more details.");
+      }
+    }
+
+    // Initialize stereogram with default text
+    generateStereogram(inputText.value);
+
+    // Update stereogram when change button is clicked
+    changeButton.addEventListener('click', () => {
+      generateStereogram(inputText.value);
+    });
+  </script>
+</body>
+</html>
 
